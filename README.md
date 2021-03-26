@@ -21,3 +21,5 @@ After running the model for the first time and extracting features importance I 
 | Employment                      | UNRATE     | Unemployment Rate                                 |
 | Economic growth                 | SP500      | Index Growth                                      |
 | Foreign Exchange                | EXUSUK     | U.S. / U.K. Foreign Exchange Rate                 |
+<br>
+![image info](./feature_importance.png)
