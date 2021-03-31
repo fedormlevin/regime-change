@@ -6,7 +6,37 @@ Logistic Regression model trained on 1984-2009 data forecasted 2020 recession 1 
 <br>
 ![image info](./regime_change.png)
 <br>
-## Macroeconomic indicators
+## The Model
+I have used Logistic Regression model with l2 penalty trained on 1984-2009 data forecasting 2020 recession. I have also assigned a higher weight to recession class to account for inbalanced data.
+<br>
+Splitting data into train and test set (data up to the end of 2009):
+```python
+df_train = df[:322].drop(['Date', 'Regime'], axis=1)
+df_train_targ = df.iloc[:322, 1]
+df_test = df[323:].drop(['Date', 'Regime'], axis=1)
+df_test_targ = df.iloc[323:, 1]
+```
+Fitting the model into Train set and forecasting Test set:
+```python
+model=LogisticRegression(C=0.029, penalty='l2', class_weight={0: 0.15, 1: 0.85}) # high weight to recession 
+LR=model.fit(df_train,df_train_targ)
+training_predictions=LR.predict(df_train)
+predictions=LR.predict(df_test)
+prob_predictions = LR.predict_proba(df_test)
+print(f'Accuracy Score: {accuracy_score(df_test_targ,predictions)}')
+print(f'Confusion Matrix: \n{confusion_matrix(df_test_targ, predictions)}')
+print(f'Area Under Curve: {roc_auc_score(df_test_targ, predictions)}')
+print(f'Recall score: {recall_score(df_test_targ,predictions)}')
+print(f'Precision score: {precision_score(df_test_targ,predictions)}')
+```
+Accuracy Score: 0.9844961240310077<br>
+Confusion Matrix: <br>
+[[119   1]<br>
+ [  1   8]]<br>
+Area Under Curve: 0.9402777777777778<br>
+Recall score: 0.8888888888888888<br>
+Precision score: 0.8888888888888888<br>
+## Macroeconomic indicators (Features)
 After running the model for the first time and extracting features importance I selected the following indicators picking the ones with low correlation:
 <br>
 | Bucket                          | Indicator  | Details                                           |
