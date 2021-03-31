@@ -108,3 +108,19 @@ bigmacro["USREC"]=bigmacro["USREC"].shift(-1)
 # dropping columns with missing values
 bigmacro=bigmacro.dropna(axis=0)
 ```
+I have standartized the data to adjust different scales:
+```python
+# Standardize
+from sklearn.preprocessing import StandardScaler
+features=bigmacro.drop(['USREC'],axis=1)
+col_names=features.columns
+
+scaler=StandardScaler()
+scaler.fit(features)
+standardized_features=scaler.transform(features)
+standardized_features.shape
+df=pd.DataFrame(data=standardized_features,columns=col_names)
+df.insert(loc=0,column="Date", value=bigmacro.index)
+df.insert(loc=1,column='Regime', value=bigmacro['USREC'].values)
+df.head()
+```
