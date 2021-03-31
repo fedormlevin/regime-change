@@ -96,7 +96,7 @@ def three_month_trs_secondary():
     threems = threems.rename('TB3MS')
     return threems
 ```
-I have added 3,6,9,12 and 18 month lags to each feature to enhance the model prediction capabilities:
+I have added 3, 6, 9, 12 and 18 months lags to each feature to enhance the model prediction capabilities:
 ```python
 # Add lags
 for col in bigmacro.drop(['USREC'], axis=1):
