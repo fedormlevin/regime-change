@@ -53,6 +53,7 @@ After running the model for the first time and extracting features importance I 
 | Foreign Exchange                | EXUSUK     | U.S. / U.K. Foreign Exchange Rate                 |
 
 ![image info](./feat_imp.png)
+The positive scores indicate a feature that predicts class 1, whereas the negative scores indicate a feature that predicts class 0<br>
 ### Feature extraction and resampling
 ```python
 recession = mitk.recession_nber() #monthly
