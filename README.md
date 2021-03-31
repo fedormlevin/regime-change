@@ -24,3 +24,47 @@ After running the model for the first time and extracting features importance I 
 <br>
 
 ![image info](./feat_imp.png)
+### Feature extraction and resampling
+<br>
+```python
+recession = mitk.recession_nber() #monthly
+T10YFFM_d = mitk.tenyear_cm_minus_fedfunds() #monthly
+TB3SMFFM_d = mitk.three_month_tbill_minus_fedfunds() #monthly
+PAYEMS_d = mitk.all_employee() #monthly
+JTSJOL_d = mitk.job_open() #monthly
+T5YFFM_d = mitk.five_year_cm_minus_fedfund() #monthly
+T1YFFM_d = mitk.one_year_cm_minus_fedfund() #monthly
+EXUSUK_d = mitk.us_uk_fx() #monthly
+HOUSTW_d = mitk.housing_stats_west_census() #monthly
+TB3MS_d = mitk.three_month_trs_secondary() #monthly
+USCONS_d = mitk.employee_constr() #monthly
+AWOTMAN_d = mitk.overtime_manuf() #monthly
+HOUST_d = mitk.housing_owened() #monthly
+DMANEMP_d = mitk.employee_durable() #monthly
+SRVPRD_d = mitk.employee_service() #monthly
+ICSA_d = mitk.initial_claims() #daily
+ICSA_d = ICSA_d.resample('M').mean() #resampling daily to monthly
+UNRATE_d = mitk.unemployment_rate_us() #monthly
+sp500 = fltk.hist_returns(['^GSPC']) #daily
+sp500_m = (1+sp500).resample('M').prod()-1 #resampling daily to monthly
+sp500_m = sp500_m.rename(columns={'^GSPC': 'SP500_M'}) #changing column name
+termspread = mitk.spread_tenyr_threemon_tr() #daily
+termspread = termspread.resample('M').mean() #resampling daily to monthly
+gdp = mitk.gdp_us() #quaterly
+gdp = gdp.resample('M').mean() #resampling quaterly to monthly
+gdp = gdp.interpolate(method='nearest') #interpolating gaps
+gdp = gdp.pct_change() #percent change
+
+```
+Data is pulled from FRED using their API. All functions are located in macro_indicators_toolkit.py file.
+Sample function:
+```python
+def three_month_trs_secondary():
+    """
+    3-Month Treasury Bill: Secondary Market Rate, Monthly
+    """
+    threems = fred.get_series('TB3MS')
+    threems.dropna(inplace=True)
+    threems = threems.rename('TB3MS')
+    return threems
+```
