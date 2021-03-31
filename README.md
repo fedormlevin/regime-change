@@ -27,6 +27,7 @@ After running the model for the first time and extracting features importance I 
 ### Feature extraction and resampling
 <br>
 ```python
+
 recession = mitk.recession_nber() #monthly
 T10YFFM_d = mitk.tenyear_cm_minus_fedfunds() #monthly
 TB3SMFFM_d = mitk.three_month_tbill_minus_fedfunds() #monthly
