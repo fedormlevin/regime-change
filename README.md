@@ -108,7 +108,7 @@ bigmacro["USREC"]=bigmacro["USREC"].shift(-1)
 # dropping columns with missing values
 bigmacro=bigmacro.dropna(axis=0)
 ```
-I have standartized the data to adjust different scales:
+I have standartized the data to adjust for different scales:
 ```python
 # Standardize
 from sklearn.preprocessing import StandardScaler
