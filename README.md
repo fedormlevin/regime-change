@@ -54,6 +54,15 @@ After running the model for the first time and extracting features importance I 
 
 ![image info](./feat_imp.png)<br>
 The positive scores indicate a feature that predicts class 1, whereas the negative scores indicate a feature that predicts class 0<br>
+```python
+# get importance
+importance = LR.coef_[0]
+feature_imp = pd.DataFrame({'Feature': df_new.drop(['Date', 'Regime'], axis=1).columns.to_list(), 'Importance':importance})
+most_imp = feature_imp[(feature_imp['Importance']>0.025)|(feature_imp['Importance']<-0.1)]
+most_imp.set_index('Feature').plot(kind='bar', figsize=(10,5))
+plt.title('Feature Importance')
+plt.ylabel('Importance')
+```
 ### Feature extraction and resampling
 ```python
 recession = mitk.recession_nber() #monthly
