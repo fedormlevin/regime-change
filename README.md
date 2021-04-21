@@ -4,7 +4,7 @@ I am forecasting US recessions based on macroeconomic indicators from 1984-2020
 # Results
 Logistic Regression model trained on 1984-2009 data forecasted 2020 recession 1 month in advance of the official data from FRED
 <br>
-![image info](./regime_change.png)
+![image info](./regch.png)
 <br>
 ## The Model
 I have used Logistic Regression model with l2 penalty trained on 1984-2009 data forecasting 2020 recession. I have also assigned a higher weight to recession class to account for inbalanced data.
