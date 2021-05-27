@@ -7,10 +7,7 @@ Logistic Regression model trained on 1984-2009 data forecasted 2020 recession 1 
 ![image info](./regch.png)
 <br>
 ## The Model
-I have used Logistic Regression model with l2 penalty trained on 1984-2009 data forecasting 2020 recession. I have also assigned a higher weight to recession class to account for inbalanced data.<br>
-Labels:<br>
-1 - Recession<br>
-0 - Normal Regime
+I have used Logistic Regression model with l2 penalty trained on 1984-2009 data forecasting 2020 recession. I have also assigned a higher weight to recession class to account for inbalanced data.
 <br>
 Splitting data into train and test set (data up to the end of 2009):
 ```python
@@ -57,6 +54,9 @@ After running the model for the first time and extracting features importance I 
 
 ![image info](./feat_imp.png)<br>
 The positive scores indicate a feature that predicts class 1, whereas the negative scores indicate a feature that predicts class 0<br>
+Labels:<br>
+1 - Recession<br>
+0 - Normal Regime
 ```python
 # get importance
 importance = LR.coef_[0]
