@@ -7,7 +7,10 @@ Logistic Regression model trained on 1984-2009 data forecasted 2020 recession 1 
 ![image info](./regch.png)
 <br>
 ## The Model
-I have used Logistic Regression model with l2 penalty trained on 1984-2009 data forecasting 2020 recession. I have also assigned a higher weight to recession class to account for inbalanced data.
+I have used Logistic Regression model with l2 penalty trained on 1984-2009 data forecasting 2020 recession. I have also assigned a higher weight to recession class to account for inbalanced data.<br>
+Labels:<br>
+1 - Recession
+0 - Normal Regime
 <br>
 Splitting data into train and test set (data up to the end of 2009):
 ```python
