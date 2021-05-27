@@ -51,6 +51,8 @@ After running the model for the first time and extracting features importance I 
 | Employment                      | UNRATE     | Unemployment Rate                                 |
 | Economic growth                 | SP500      | Index Growth                                      |
 | Foreign Exchange                | EXUSUK     | U.S. / U.K. Foreign Exchange Rate                 |
+| Employment                      | PAYEMS     | All Employees, Total Nonfarm                      |
+
 
 ![image info](./feat_imp.png)<br>
 The positive scores indicate a feature that predicts class 1, whereas the negative scores indicate a feature that predicts class 0<br>
