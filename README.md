@@ -54,7 +54,7 @@ After running the model for the first time and extracting features importance I 
 
 ![image info](./feat_imp.png)<br>
 The positive scores indicate a feature that predicts class 1, whereas the negative scores indicate a feature that predicts class 0<br>
-Labels:<br>
+Classes:<br>
 1 - Recession<br>
 0 - Normal Regime
 ```python
