@@ -29,13 +29,11 @@ print(f'Area Under Curve: {roc_auc_score(df_test_targ, predictions)}')
 print(f'Recall score: {recall_score(df_test_targ,predictions)}')
 print(f'Precision score: {precision_score(df_test_targ,predictions)}')
 ```
-Accuracy Score: 0.9844961240310077<br>
+Accuracy Score: 0.98<br>
 Confusion Matrix: <br>
 [[119 --- 1]<br>
  [1   --- 8]]<br>
-Area Under Curve: 0.9402777777777778<br>
-Recall score: 0.8888888888888888<br>
-Precision score: 0.8888888888888888<br>
+Area Under Curve: 0.94<br>
 ## Macroeconomic indicators (Features)
 After running the model for the first time and extracting features importance I selected the following indicators picking the ones with low correlation:
 <br>
